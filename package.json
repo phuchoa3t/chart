@@ -15,7 +15,7 @@
     "shortid": "^2.2.8"
   },
   "devDependencies": {
-    "react-scripts": "^1.0.17"
+    "react-scripts": "^1.1.5"
   },
   "scripts": {
     "reinstall-deps": "rm -rf node_modules package-lock.json && npm i",
