@@ -20,7 +20,7 @@ const parseDate = timeParse("%Y-%m-%d");
 
 export function getData() {
 	// const promiseMSFT = fetch("https://cdn.rawgit.com/rrag/react-stockcharts/master/docs/data/MSFT.tsv")
-	const promiseMSFT = fetch("http://localhost:3003/api/v1/ohlc")
+	const promiseMSFT = fetch("https://lychee-pie-53456.herokuapp.com/api/v1/ohlc")
 		.then(response => response.json())
 		.then(response => {
             return response.data.map(ohlc => {

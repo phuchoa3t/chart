@@ -1,5 +1,5 @@
 $(function() {
-    var socket = io.connect('http://localhost:3030', {
+    var socket = io.connect('https://pacific-hollows-39324.herokuapp.com', {
         'sync disconnect on unload': true
     });
     
