@@ -5,6 +5,7 @@ import Chart from './Chart';
 import { getData } from "./utils"
 
 import { TypeChooser } from "react-stockcharts/lib/helper";
+import { useEffect } from 'react';
 
 class ChartComponent extends React.Component {
 	componentDidMount() {
@@ -12,15 +13,26 @@ class ChartComponent extends React.Component {
 			console.log(data)
 			this.setState({ data })
 		})
+		
 	}
+	updateChart(c, e) {
+		const type = e.target.value;
+		getData(type).then(data => {
+			c.setState({ data })
+		})
+	}
+	
 	render() {
 		if (this.state == null) {
 			return <div>Loading...</div>
 		}
 		return (
-			<TypeChooser>
-				{type => <Chart type={type} data={this.state.data} />}
-			</TypeChooser>
+			<div>
+				<input name="type" value="5m" type="radio" onChange={(e) => this.updateChart(this, e)}/>5m
+				<input name="type" value="30m" type="radio" onChange={(e) => this.updateChart(this, e)}/>30m
+				<input name="type" value="1h" type="radio" onChange={(e) => this.updateChart(this, e)}/>1hour
+				<Chart typeOHLC={this.state.type} data={this.state.data} />
+			</div>
 		)
 	}
 }
