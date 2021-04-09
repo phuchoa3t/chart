@@ -1,4 +1,5 @@
 $(function() {
+    1111
     var socket = io.connect('https://pacific-hollows-39324.herokuapp.com', {
         'sync disconnect on unload': true
     });
